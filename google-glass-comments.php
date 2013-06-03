@@ -30,3 +30,7 @@ Author URI: http://ocwp.org/
  * **********************************************************************
  */
 
+add_action('wp_insert_comment', 'ggc_send_notification', 10, 2 );
+function ggc_send_notification( $id, $comment ) {
+	// do stuff
+}
