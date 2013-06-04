@@ -11,7 +11,7 @@ function ggc_send_notification( $id = 0, $comment = array() ) {
 	$datetime = date( DATE_RFC3339 );
 
 	$result = wp_remote_post(
-		'http://www.googleapis.com',
+		'https://www.googleapis.com/upload/mirror/v1/timeline',
 		array(
 			'body' => json_encode(array(
 				"kind"			=> "mirror#timelineItem",
