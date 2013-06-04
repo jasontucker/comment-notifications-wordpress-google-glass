@@ -34,6 +34,32 @@ function ggc_send_notification( $id = 0, $comment = array() ) {
 				"html"			=> apply_filters( 'ggc-card-html', sprintf( '<article><section><h1 class="text-normal blue">%s</h1><hr><p class="text-x-small">%s</p></section><footer><p><img class="left icon-small" src="%s">%s</p></footer></article>', __( 'New Comment' ), get_comment_text( $id ), get_avatar( get_comment_author_email( $id ), '100' ), get_comment_author( $id ) ), $id, $comment ),
 				"htmlPages"		=> array( '' ),
 				"speakableText"	=> apply_filters( 'ggc-card-spoken-text', get_comment_text( $id ), $id, $comment ),
+				"menuItems"		=> array(
+					array(
+						"action"	=> "CUSTOM",
+						"id"		=> "spam",
+						"values"	=> array(array(
+							"displayName"	=> "Spam",
+							"iconUrl"		=> GGC_IMG."spam.png" // http://thenounproject.com/noun/disapprove/#icon-No339 - Disapprove from The Noun Project
+						))
+					),
+					array(
+						"action"	=> "CUSTOM",
+						"id"		=> "approve",
+						"values"	=> array(array(
+							"displayName"	=> "Approve",
+							"iconUrl"		=> GGC_IMG."approve.png" // http://thenounproject.com/noun/approve/#icon-No330 - Approve from The Noun Project
+						))
+					),
+					array(
+						"action"	=> "CUSTOM",
+						"id"		=> "delete",
+						"values"	=> array(array(
+							"displayName"	=> "Delete",
+							"iconUrl"		=> GGC_IMG."delete.png" // http://thenounproject.com/noun/trash/#icon-No16505 Trash, designed by filip (http://thenounproject.com/fmal) from The Noun Project
+						))
+					)
+				),
 				"notification"=> array(
 					"level" => 'DEFAULT',
 				)
