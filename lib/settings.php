@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Sets up all of the settings for the settings page
+ * @since  1.0
+ */
 function ggc_settings_api_init() {
 	$options = ggc_get_options();
 
@@ -65,16 +69,31 @@ function ggc_settings_api_init() {
 
 } // ggc_settings_api_init()
 
+	/**
+	 * Outputs a description for the settings section
+	 * @since  1.0
+	 */
 	function ggc_api_settings_title() {
 		echo sprintf( '<p>%s</p>', __( 'Enter your Google Mirror API Information below.' ) );
 	}
 
 	function ggc_text_field( $args ) {
+	/**
+	 * A basic text field template
+	 * @param  array  $args an array containing values to be used in the output
+	 * @since  1.0
+	 */
 		echo sprintf( '<input type="text" name="%s" value="%s" class="%s" /><span class="description">%s</span>', esc_attr( $args['name'] ), esc_attr( $args['value'] ), esc_attr( $args['class'] ), esc_html( $args['desc'] ) );
 	}
 
 function ggc_sanitize_settings( $input ) {
 	$options = get_ggc_options();
+	/**
+	 * Sanitizes and validates input data
+	 * @param  array  $input an array of user submitted post variables
+	 * @return array        squeaky clean data ready to be saved
+	 * @since  1.0
+	 */
 
 	$output['api-client-id'] = $input['api-client-id'];
 	$output['api-client-secret'] = $input['api-client-secret'];
@@ -83,6 +102,11 @@ function ggc_sanitize_settings( $input ) {
 }
 
 function get_ggc_options() {
+/**
+ * Utility function to get all of the options filled with defaults if they don't exist
+ * @return array all possible options with either saved or empty values
+ * @since  1.0
+ */
 function ggc_get_options() {
 	$defaults = array(
 		'api-client-id' => '',
