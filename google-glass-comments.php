@@ -31,6 +31,7 @@ Author URI: http://ocwp.org/
  */
 
 require_once( 'lib/hooks.php' );
+require_once( 'lib/settings.php' );
 require_once( 'lib/notifications.php' );
 
 
