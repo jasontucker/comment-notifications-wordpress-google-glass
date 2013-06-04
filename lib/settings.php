@@ -95,14 +95,14 @@ function ggc_settings_api_init() {
 	function ggc_sanitize_settings( $input = array() ) {
 		$options = ggc_get_options();
 
-		if( count( $input ) > 3 )
-			add_settings_error( 'ggc-settings', 'bad-behavior', apply_filters( 'ggc-bad-behavior-message', __( 'We updated the settings, but are not impressed with your shady behavior. The system administrator has been notified.' ) ), 'error' );
-
 		$output['api-client-id'] = $input['api-client-id'];
 		$output['api-client-secret'] = $input['api-client-secret'];
 		$output['api-simple-key'] = $input['api-simple-key'];
 
-		add_settings_error( 'ggc-settings', 'success', apply_filters( 'ggc-success-message', __( 'Settings have been saved!' ) ), 'updated' );
+		if( count( $input ) > 3 )
+			add_settings_error( 'ggc-settings', 'bad-behavior', apply_filters( 'ggc-bad-behavior-message', __( 'We updated the settings, but are not impressed with your shady behavior. The system administrator has been notified.' ) ), 'updated' );
+		else
+			add_settings_error( 'ggc-settings', 'success', apply_filters( 'ggc-success-message', __( 'Settings have been saved!' ) ), 'updated' );
 
 		return (array) $output;
 	}
