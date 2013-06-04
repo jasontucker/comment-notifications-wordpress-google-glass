@@ -1,7 +1,7 @@
 <?php
 
 function ggc_settings_api_init() {
-	$options = get_ggc_options();
+	$options = ggc_get_options();
 
 	// Setting name
 	register_setting(
@@ -83,6 +83,7 @@ function ggc_sanitize_settings( $input ) {
 }
 
 function get_ggc_options() {
+function ggc_get_options() {
 	$defaults = array(
 		'api-client-id' => '',
 		'api-client-secret' => '',
