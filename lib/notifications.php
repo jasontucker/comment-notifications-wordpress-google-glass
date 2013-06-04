@@ -71,7 +71,9 @@ function ggc_send_notification( $id = 0, $comment = array() ) {
 	); // wp_remote_post
 
 	if( is_wp_error( $result ) ) :
-		error_log( sprintf( __( 'Google Glasses Comments Notification Error: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ) ) ) );
+		error_log( sprintf( __( 'Google Glasses Comments Notification Error: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ), true ) ) );
 	endif;
+
+	error_log( sprintf( __( 'Google Glasses Result: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ), true ) ) );
 
 }
