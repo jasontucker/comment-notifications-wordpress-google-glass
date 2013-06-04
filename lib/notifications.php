@@ -2,13 +2,13 @@
 
 /**
  * When a comment is published a notification is sent to Google Glass
- * @param  int $id      [description]
- * @param  string $comment [description]
+ * @param  integer $id      the id of the comment
+ * @param  array   $comment the entire comment object
+ * @since  1.0
  */
-function ggc_send_notification( $id, $comment ) {
+function ggc_send_notification( $id = 0, $comment = array() ) {
 
 	$datetime = date( DATE_RFC3339 );
-	$contact = new stdClass();
 
 	$result = wp_remote_post(
 		'http://www.googleapis.com',
