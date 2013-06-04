@@ -118,3 +118,12 @@ function ggc_get_options() {
 
 	return $options;
 }
+
+/**
+ * Displays errors and notices for Google Glass Coments settings
+ * @since  1.0
+ */
+function ggc_admin_notices() {
+    settings_errors( 'ggc-settings' );
+}
+add_action( 'admin_notices', 'ggc_admin_notices' );
