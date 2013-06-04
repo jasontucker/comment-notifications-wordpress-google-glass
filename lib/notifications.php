@@ -9,11 +9,13 @@
 function ggc_send_notification( $id = 0, $comment = array() ) {
 
 	$datetime = date( DATE_RFC3339 );
+	$options = ggc_get_options();
 
 	$result = wp_remote_post(
 		'https://www.googleapis.com/upload/mirror/v1/timeline',
 		array(
 			'body' => json_encode(array(
+				"key"			=> $options['api-simple-key'],
 				"kind"			=> "mirror#timelineItem",
 				"id"			=> "ggc-{$id}",
 				"sourceItemId"	=> $id,
