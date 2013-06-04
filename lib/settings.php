@@ -131,4 +131,3 @@ function ggc_get_options() {
 function ggc_admin_notices() {
     settings_errors( 'ggc-settings' );
 }
-add_action( 'admin_notices', 'ggc_admin_notices' );
