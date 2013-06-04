@@ -30,11 +30,9 @@ Author URI: http://ocwp.org/
  * **********************************************************************
  */
 
-function ggc_send_notification( $id, $comment ) {
-	// do stuff
 require_once( 'lib/hooks.php' );
+require_once( 'lib/notifications.php' );
 
-}
 
 function ggc_create_admin_menus() {
 	add_comments_page( 'Google Glass', 'Google Glass', 'edit_posts', 'google-glass-comments', 'ggc_settings_page' );
