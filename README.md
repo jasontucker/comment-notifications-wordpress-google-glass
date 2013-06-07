@@ -1,4 +1,4 @@
-comment-notifications-wordpress-google-glass
+## Comment Notifications for WordPress for use with Google Glass
 ============================================
 
 WordPress plugin that delivers notifications to the site owner's Google Glass when a new comment is made on the site.
@@ -9,22 +9,22 @@ WordPress plugin that delivers notifications to the site owner's Google Glass wh
 * Steve Zehngut - Zeek.com (@stevezehngut)
 * Jason Tucker - Tucker.Pro WPMedia.Pro (@jasontucker)
 
-Resources:
+### Resources:
 
-Subscription Proxy:
+* Subscription Proxy:
 https://developers.google.com/glass/subscription-proxy
 
-Google Mirror API Playground:
+* Google Mirror API Playground:
 https://developers.google.com/glass/playground
 
-More docs:
+More Resources:
 
-Google Glass Mirror API:
+* Google Glass Mirror API:
 https://developers.google.com/glass/quickstart/
 
-Google Mirror API Overview:
+* Google Mirror API Overview:
 https://developers.google.com/glass/about
 
-Google Glass UI Guidelines:
+* Google Glass UI Guidelines:
 https://developers.google.com/glass/ui-guidelines
 
