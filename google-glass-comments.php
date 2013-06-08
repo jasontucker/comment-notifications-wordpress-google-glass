@@ -9,7 +9,7 @@ Author URI: http://ocwp.org/
 */
 
 /**
- * Copyright (c) `date "+%Y"` Your Name. All rights reserved.
+ * Copyright (c) 2013 OCWP Developers. All rights reserved.
  *
  * Released under the GPL license
  * http://www.opensource.org/licenses/gpl-license.php
