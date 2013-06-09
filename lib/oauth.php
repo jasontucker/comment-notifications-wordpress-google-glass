@@ -71,9 +71,9 @@ function ggc_get_access_token( $code = '' ) {
 	endif;
 
 	$options['oauth-code']				= $code;
-	$options['oauth-access-token']		= $result->access_token;
-	$options['oauth-token-type']		= $result->token_type;
-	$options['oauth-token-epiration']	= $result->expires_in;
+	$options['oauth-access-token']		= $result_body->access_token;
+	$options['oauth-token-type']		= $result_body->token_type;
+	$options['oauth-token-epiration']	= $result_body->expires_in;
 	ggc_set_options( $options );
 
 	add_settings_error( 'ggc-settings', 'google-oauth-success', apply_filters( 'ggc-oauth-success-message', __( 'Successfully Authenticated! You will now begin receiving comment notifications on your Google Glass. How exciting!' ), $result ), 'updated' );
