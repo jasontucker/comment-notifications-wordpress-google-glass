@@ -8,5 +8,8 @@ add_action( 'admin_menu',			'ggc_create_admin_menus' );
 add_action( 'admin_init',			'ggc_settings_api_init' );
 add_action( 'admin_notices',		'ggc_admin_notices' );
 
-//lib/oauth.php
+// lib/oauth.php
 add_action( 'admin_head',			'ggc_catch_oauth_response' );
+
+// lib/cron.php
+add_action( 'gcc_renew_oauth', 		'gcc_renew_oauth_hook' );

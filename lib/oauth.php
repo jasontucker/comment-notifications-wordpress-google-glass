@@ -77,4 +77,8 @@ function ggc_get_access_token( $code = '' ) {
 	$oauth['oauth-token-epiration']	= $result_body->expires_in;
 
 	update_option( 'ggc-oauth-settings', $oauth );
+
+	if ( ! wp_next_scheduled( 'gcc_renew_oauth' ) ) {
+		wp_schedule_event( time(), 'hourly', 'gcc_renew_oauth' );
+	}
 }

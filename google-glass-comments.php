@@ -51,6 +51,7 @@ require_once( GGC_LIB.'hooks.php' );
 require_once( GGC_LIB.'settings.php' );
 require_once( GGC_LIB.'notifications.php' );
 require_once( GGC_LIB.'oauth.php' );
+require_once( GGC_LIB.'cron.php' );
 
 /**
  * Create the settings page
