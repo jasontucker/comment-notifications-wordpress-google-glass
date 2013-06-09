@@ -1,7 +1,7 @@
 <?php
 
 // ggc-oauth-setup
-add_action( 'admin_init', 'ggc_catch_oauth_response' );
+add_action( 'admin_head', 'ggc_catch_oauth_response' );
 function ggc_catch_oauth_response() {
 
 	$screen = get_current_screen();
