@@ -125,6 +125,14 @@ function ggc_get_options() {
 }
 
 /**
+ * Utility function to update all of the options
+ * @since  1.0
+ */
+function ggc_set_options( $options = array() ) {
+	update_option( 'ggc-settings', $options );
+}
+
+/**
  * Displays errors and notices for Google Glass Coments settings
  * @since  1.0
  */
