@@ -10,7 +10,7 @@ function ggc_catch_oauth_response() {
 
 		// Crap
 		if( isset( $_REQUEST['error'] ) ) :
-			wp_die( __( 'OH NOES!' ) );
+			add_settings_error( 'ggc-settings', 'google-nocode', apply_filters( 'ggc-nocode-message', sprintf( __( 'There was an error when trying to authenticate with the almighty Google. The error code was %s.' ), esc_html( $_REQUEST['error'] ) ), $_REQUEST['error'] ), 'error' );
 
 		// SA-WEET-AH!
 		elseif( isset( $_REQUEST['code'] ) ) :
@@ -63,14 +63,18 @@ function ggc_get_access_token( $code = '' ) {
 		)
 	);
 
+	$result_body = wp_remote_retrieve_body( $result );
+
 	if( is_wp_error( $result ) ) :
-		error_log( sprintf( __( 'Google Authentication Error: %s' ), print_r( array( 'result' => $result ), true ) ) );
+		add_settings_error( 'ggc-settings', 'google-noauth', apply_filters( 'ggc-noauth-message', sprintf( __( 'There was an error when trying to get an access token from the almighty Google. The error code was %s.' ), esc_html( $result_body->error ) ), $result ), 'error' );
+		return false;
 	endif;
 
-	wp_mail( 'brandon@pixeljar.net', 'google authentication', sprintf( __( 'Google Glasses Result: %s' ), print_r( array( 'result' => $result ), true ) ) );
-	error_log( sprintf( __( 'Google Authentication Result: %s' ), print_r( array( 'result' => $result ), true ) ) );
+	$options['oauth-code']				= $code;
+	$options['oauth-access-token']		= $result->access_token;
+	$options['oauth-token-type']		= $result->token_type;
+	$options['oauth-token-epiration']	= $result->expires_in;
+	ggc_set_options( $options );
 
-	$result_body = wp_remote_retrieve_body( $result );
-	echo '<pre>'.print_r( json_decode( $result_body ), true ).'</pre>';
-
+	add_settings_error( 'ggc-settings', 'google-oauth-success', apply_filters( 'ggc-oauth-success-message', __( 'Successfully Authenticated! You will now begin receiving comment notifications on your Google Glass. How exciting!' ), $result ), 'updated' );
 }
