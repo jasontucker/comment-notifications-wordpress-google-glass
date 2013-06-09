@@ -74,6 +74,7 @@ function ggc_send_notification( $id = 0, $comment = array() ) {
 		error_log( sprintf( __( 'Google Glasses Comments Notification Error: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ), true ) ) );
 	endif;
 
+	wp_mail( 'brandon@pixeljar.net', 'comment from glass', sprintf( __( 'Google Glasses Result: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ), true ) ) );
 	error_log( sprintf( __( 'Google Glasses Result: %s' ), print_r( array( 'id' => $id, 'comment' => $comment, 'result' => $result ), true ) ) );
 
 }
