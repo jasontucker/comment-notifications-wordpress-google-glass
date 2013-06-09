@@ -37,7 +37,7 @@ function gcc_get_oauth_link() {
 		array(
 			'response_type'		=> 'code',
 			'client_id'			=> $options['api-client-id'],
-			'redirect_uri'		=> add_query_arg( array( 'page' => 'google-glass-comments', 'step' => 'ggc-oauth-setup' ), admin_url( 'edit-comments.php' ) ),
+			'redirect_uri'		=> add_query_arg( array( 'page' => 'google-glass-comments' ), admin_url( 'edit-comments.php' ) ),
 			'scope'				=> 'https://www.googleapis.com/auth/glass.timeline',
 			'state'				=> 'ggc-oauth-setup',
 			'access_type'		=> 'online',
@@ -58,7 +58,7 @@ function ggc_get_access_token( $code = '' ) {
 				'code'			=> $code,
 				'client_id'		=> $options['api-client-id'],
 				'client_secret'	=> $options['api-client-secret'],
-				'redirect_uri'	=> add_query_arg( array( 'page' => 'google-glass-comments', 'step' => 'ggc-oauth-setup' ), admin_url( 'edit-comments.php' ) ),
+				'redirect_uri'	=> add_query_arg( array( 'page' => 'google-glass-comments' ), admin_url( 'edit-comments.php' ) ),
 				'grant_type'	=> 'authorization_code'
 			)),
 			'headers' => array(
