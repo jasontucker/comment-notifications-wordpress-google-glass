@@ -21,8 +21,6 @@ function ggc_catch_oauth_response() {
 	endif;
 }
 
-// https://developers.google.com/accounts/docs/OAuth2WebServer
-
 /**
  * Generates a google oAuth link
  * @see  https://developers.google.com/accounts/docs/OAuth2WebServer
