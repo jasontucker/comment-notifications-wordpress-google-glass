@@ -50,6 +50,7 @@ load_plugin_textdomain( GGC, null, GGC_REL );
 require_once( GGC_LIB.'hooks.php' );
 require_once( GGC_LIB.'settings.php' );
 require_once( GGC_LIB.'notifications.php' );
+require_once( GGC_LIB.'oauth.php' );
 
 /**
  * Create the settings page
