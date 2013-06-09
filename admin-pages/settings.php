@@ -7,5 +7,11 @@
 		<?php settings_fields( 'ggc-settings' ); ?>
 		<?php do_settings_sections( 'google-glass-comments' ) ?>
 		<?php submit_button( __( 'Save Settings' ) ) ?>
+		<?php
+			$options = ggc_get_options();
+			if( ! empty( $options['api-client-id'] ) && ! empty( $options['api-client-secret'] ) && ! empty( $options['api-simple-key'] ) && empty( $options['oauth-authorization-code'] ) ) :
+				echo sprintf( '<p><a href="%s" class="button-secondary">%s</a></p>', gcc_get_oauth_link(), __( 'Authenticate with Google' ) );
+			endif;
+		?>
 	</form>
 </div>
