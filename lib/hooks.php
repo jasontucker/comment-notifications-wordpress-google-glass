@@ -7,3 +7,6 @@ add_action( 'admin_menu',			'ggc_create_admin_menus' );
 // lib/settings.php
 add_action( 'admin_init',			'ggc_settings_api_init' );
 add_action( 'admin_notices',		'ggc_admin_notices' );
+
+//lib/oauth.php
+add_action( 'admin_head',			'ggc_catch_oauth_response' );
